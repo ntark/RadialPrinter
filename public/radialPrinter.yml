@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: "Radial Printer - API"
+  description: "This is ඞ"
+  license:
+    name: source
+    url: https://editor.swagger.io/
+  # termsOfService: http://swagger.io/terms/
+  # contact:
+  #     email: apiteam@swagger.io
+  # version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+# servers:
+#     - url: https://petstore3.swagger.io/api/v3
+tags:
+  - name: GCode
+    description: Convert from Gcode
+  - name: SVG
+    description: Convert from SVG file
+  - name: Image
+    description: Convert from PNG/JGEG/BMP file
+  - name: test
+    description:
+
+paths:
+  /API/test:
+    get:
+      tags:
+        - test
+      summary: simple test page
+      responses:
+        "200":
+          description: successful operation
+        "404":
+          description: error
+
+  /API/GCode/xyToRad:
+    post:
+      tags:
+        - GCode
+      summary: GCode to GCode
+
+  /API/GCode/transform:
+    post:
+      tags:
+        - GCode
+      summary: GCode to GCode
+
+  /API/SVG/toGCode:
+    post:
+      tags:
+        - SVG
+      summary: SVG to GCode
+
+  /API/SVG/toCentrelineSVG:
+    post:
+      tags:
+        - SVG
+      summary: SVG to SVG
+
+  /API/Image/toSVG:
+    post:
+      tags:
+        - Image
+      summary: Image to SVG
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: File uploaded successfully
+
+  /API/Image/toEdges:
+    post:
+      tags:
+        - Image
+      summary: Image to Edges Image
+
+  /API/Image/toRadialFill:
+    post:
+      tags:
+        - Image
+      summary: Image to GCode
