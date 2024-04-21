@@ -20,7 +20,7 @@ tags:
   - name: SVG
     description: Convert from SVG file
   - name: Image
-    description: Convert from PNG/JGEG/BMP file
+    description: Convert from PNG/JPEG/BMP file
   - name: test
     description:
 
