@@ -11,5 +11,5 @@ CREATE TABLE logs (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE USER 'printer'@'localhost' IDENTIFIED BY '';
-GRANT ALL PRIVILEGES ON printer.* TO 'printer'@'localhost';
+CREATE USER 'printer'@'%' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON printer.* TO 'printer'@'%';
