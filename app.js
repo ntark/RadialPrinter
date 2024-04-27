@@ -1,8 +1,9 @@
 const express = require('express');
 const https = require('https');
 const fs = require('fs');
-const morgan = require('morgan');
 const APIRoutes = require('./routes/APIRoutes');
+const logRoutes = require('./routes/logRoutes');
+const { attachSqlConnection } = require('./middlewares/sqlConnection');
 
 const app = express();
 
@@ -10,7 +11,9 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }))
-app.use(morgan('dev'));
+
+app.use(attachSqlConnection);
+app.use(logRoutes);
 
 app.get('/', (req, res) => {
     res.render('index', { title: "Home" });
